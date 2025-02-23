@@ -41,7 +41,7 @@ const App = () => {
       alert("해당 방은 이미 2명으로 가득 찼습니다.");
       // 바로 연결 정리 or 그냥 return
       // 여기서는 간단하게 Disconnect 로직만 실행
-      handleDisconnect();
+      // handleDisconnect();
     });
 
     // 기존 users 전달
