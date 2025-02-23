@@ -12,6 +12,7 @@ COPY . .
 
 # Set the environment variable to use the legacy OpenSSL provider
 ENV NODE_OPTIONS=--openssl-legacy-provider
+ENV REACT_APP_SOCKET_SERVER_URL https://devrtc.m-teacher.co.kr:8080
 
 RUN npm run build
 RUN npm install -g serve -y

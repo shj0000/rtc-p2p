@@ -9,9 +9,16 @@ const pc_config = {
   ],
 };
 
-const SOCKET_SERVER_URL = "https://devrtc.m-teacher.co.kr:8080";
+// 수정 후
+// const SOCKET_SERVER_URL = "https://devrtc.m-teacher.co.kr:8080";
+const SOCKET_SERVER_URL = process.env.REACT_APP_SOCKET_SERVER_URL!;
+console.log("SOCKET_SERVER_URL:", SOCKET_SERVER_URL);
+
 
 const App = () => {
+  if (!SOCKET_SERVER_URL) {
+    throw new Error("REACT_APP_SOCKET_SERVER_URL 환경 변수가 정의되지 않았습니다.");
+  }
   const [roomId, setRoomId] = useState("");
   const [isConnected, setIsConnected] = useState(false);
 

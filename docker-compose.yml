@@ -6,8 +6,19 @@ services:
       - PORT=8080
     ports:
       - "8080:8080"
+    healthcheck:
+      test: ["CMD", "sh", "-c", "curl -f http://localhost:8080/health && echo 'Health check OK' || (echo 'Health check FAILED' && exit 1)"]
+      interval: 3s
+      timeout: 1s
+      retries: 3
     networks:
       - docker-net
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
   web:
     build:
       context: ./web
@@ -17,5 +28,11 @@ services:
       - "5000:3000"
     networks:
       - docker-net
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
 networks:
   docker-net:

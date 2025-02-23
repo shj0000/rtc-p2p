@@ -28,6 +28,11 @@ let socketToRoom = {};
 
 const MAXIMUM = 2; // 방 최대 인원 (2명)
 
+// 헬스체크 엔드포인트 추가
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 io.on("connection", (socket) => {
   /**
    * 방 접속
