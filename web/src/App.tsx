@@ -9,7 +9,7 @@ const pc_config = {
   ],
 };
 
-const SOCKET_SERVER_URL = "http://localhost:8080";
+const SOCKET_SERVER_URL = "https://devrtc.m-teacher.co.kr:8080";
 
 const App = () => {
   const [roomId, setRoomId] = useState("");

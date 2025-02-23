@@ -10,6 +10,9 @@ RUN npm install
 
 COPY . .
 
+# Set the environment variable to use the legacy OpenSSL provider
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
 RUN npm run build
 RUN npm install -g serve -y
 

@@ -14,7 +14,7 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - "8085:5000"
+      - "5000:3000"
     networks:
       - docker-net
 networks:

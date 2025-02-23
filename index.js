@@ -8,7 +8,13 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
-app.use(cors());
+// 1) Express CORS 설정 (HTTP 요청에 대해 전부 허용)
+app.use(
+    cors({
+      origin: "*",       // 모든 origin 허용
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    })
+);
 
 const PORT = process.env.PORT || 8080;
 
